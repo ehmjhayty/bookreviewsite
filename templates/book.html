@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+{%block content%}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="{{url_for('index')}}">Home</a>
+            <span class="breadcrumb-item active">Search Results</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h2>Search Result for "{{text}}"</h2>
+            <div class="recent-book-sec">
+                <div class="row">
+                    {%for item in book%}
+                    <div class="col-md-3">
+                        <div class="item">
+                            <img src="http://covers.openlibrary.org/b/isbn/{{item.isbn}}-M.jpg" alt="img">
+                            <h3><a href="{{url_for('book_page', isbn=item.isbn)}}">{{item.book.title}}</a></h3>
+                            <h4>{{item.author.name}}</h4>
+                            <h6><span class="price">{{item.isbn}}</span> / <a href="#">{{item.book.year}}</a></h6>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="btn-sec">
+                    <a href="products.html" class="btn gray-btn"><strike>load More books</strike></a>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}

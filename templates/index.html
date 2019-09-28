@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{%block content%}
+    <section class="slider">
+        <div class="container">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='images/slide1.jpg')}}" alt="slide1">
+                        <div class="content">
+                            <div class="title">
+                                <h3>welcome to Book Review Website</h3>
+                                <h5>Discover the best books online with us</h5>
+                                <!--<a href="#" class="btn">View books</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

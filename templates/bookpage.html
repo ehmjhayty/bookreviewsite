@@ -1,0 +1,88 @@
+{%extends "base.html"%}
+{%block content%}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="{{url_for('index')}}">Home</a>
+            <span class="breadcrumb-item active">{{data.isbn}}</span>
+
+        </div>
+    </div>
+    <section class="product-sec">
+        <div class="container">
+            {%for item in book%}
+            <h1>{{item.book.title}}</h1>
+            <div class="row">
+                <div class="col-md-6 slider-sec">
+                    <!-- main slider carousel -->
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="http://covers.openlibrary.org/b/isbn/{{item.isbn}}.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <!--/main slider carousel-->
+                </div>
+                <div class="col-md-6 slider-content">
+                    <ul>
+                        <li>
+                            <span class="name">ISBN</span><span class="clm">:</span>
+                            <span class="price final" style="color:black;">{{data.isbn}}</span>
+                        </li>
+
+                        <li>
+                            <span class="name">Author</span><span class="clm">:</span>
+                            <span class="price final" style="color:black;">{{item.author.name}}</span>
+                        </li>
+
+                        <li>
+                            <span class="name">Year Published</span><span class="clm">:</span>
+                            <span class="price final" style="color:black;">{{item.book.year}}</span>
+                        </li>
+                        <div style="margin-top: 50px; visibility:hidden;" >dsa</div>
+                        <li>
+                            <span class="name">Total Ratings</span><span class="clm">:</span>
+                            <span class="price final">{{data.ratings_count}}</span>
+                        </li>
+                        <li>
+                            <span class="name">Average Ratings</span><span class="clm">:</span>
+                            <span class="price final">{{data.average_rating}}/5</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </section>
+    <section class="static about-sec">
+            <div class="container">
+                <h1>Add a review</h1>
+                <div class="form">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="number" min=1 max=5 placeholder="Enter rating [1-5]" required>
+                                <span class="required-star">*</span>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea rows="4" placeholder="    Enter Text Review" style="width:100%;" required></textarea>
+                                <span class="required-star">*</span>
+                            </div>
+                            <div class="col-lg-8 col-md-12" style="margin-top:10px;">
+                                <button class="btn black" onclick="submitRating()">Submit Rating</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </section>
+    <section class="static about-sec" style="margin-top:-75px;">
+        <div class="container">
+            <h1>Reviews</h1>
+            <h3 class="price final" ><strike>Review Section is not available</strike></h3>
+            <p class="price final"><strike>Database is full</strike></p>
+        </div>
+    </section>
+
+{%endblock%}
