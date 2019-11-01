@@ -1,3 +1,3 @@
 # Book Review Website
 
-Web Programming with Python-Flask
+A book review website made with flask and flask-sqlalchemy
